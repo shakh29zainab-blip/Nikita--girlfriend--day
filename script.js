@@ -1,226 +1,244 @@
-// ===============================
-// Loading Screen
-// ===============================
-
-window.addEventListener("load", () => {
-
-    const loader = document.getElementById("loadingScreen");
-
-    if (loader) {
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 1500);
-    }
-
-});
-
-
-// ===============================
-// Surprise Video Popup
-// ===============================
+/* ==========================================
+        SURPRISE VIDEO + MUSIC
+========================================== */
 
 const surpriseBtn = document.getElementById("surpriseBtn");
 const videoPopup = document.getElementById("videoPopup");
-const closeVideo = document.querySelector(".close-video");
-const loveVideo = document.getElementById("loveVideo");
+const closeVideo = document.getElementById("closeVideo");
+const surpriseVideo = document.getElementById("surpriseVideo");
+const bgMusic = document.getElementById("bgMusic");
 
 if (surpriseBtn) {
-
-    surpriseBtn.onclick = () => {
-
+    surpriseBtn.addEventListener("click", () => {
         videoPopup.style.display = "flex";
+        surpriseVideo.play();
 
-        loveVideo.play();
-
-    };
-
+        if (bgMusic) {
+            bgMusic.play().catch(() => {});
+        }
+    });
 }
 
 if (closeVideo) {
-
-    closeVideo.onclick = () => {
-
+    closeVideo.addEventListener("click", () => {
         videoPopup.style.display = "none";
-
-        loveVideo.pause();
-
-        loveVideo.currentTime = 0;
-
-    };
-
-}
-
-
-// ===============================
-// Letter Popup
-// ===============================
-
-const openLetter = document.getElementById("openLetter");
-
-const letterPopup = document.getElementById("letterPopup");
-
-const closeLetter = document.querySelector(".close-letter");
-
-if (openLetter) {
-
-    openLetter.onclick = () => {
-
-        letterPopup.style.display = "flex";
-
-    };
-
-}
-
-if (closeLetter) {
-
-    closeLetter.onclick = () => {
-
-        letterPopup.style.display = "none";
-
-    };
-
-}
-
-
-// ===============================
-// Image Viewer
-// ===============================
-
-const images = document.querySelectorAll(".gallery-image");
-
-const imageViewer = document.getElementById("imageViewer");
-
-const previewImage = document.getElementById("previewImage");
-
-const closeImage = document.querySelector(".close-image");
-
-images.forEach(img => {
-
-    img.addEventListener("click", () => {
-
-        previewImage.src = img.src;
-
-        imageViewer.style.display = "flex";
-
+        surpriseVideo.pause();
+        surpriseVideo.currentTime = 0;
     });
+}
 
+window.addEventListener("click", (e) => {
+    if (e.target === videoPopup) {
+        videoPopup.style.display = "none";
+        surpriseVideo.pause();
+        surpriseVideo.currentTime = 0;
+    }
 });
 
-if (closeImage) {
 
-    closeImage.onclick = () => {
+/* ==========================================
+            STORY SLIDER
+========================================== */
 
-        imageViewer.style.display = "none";
+const storyCards = document.querySelectorAll(".story-card");
+const storyDots = document.querySelectorAll(".dot");
+const prevStory = document.querySelector(".prevStory");
+const nextStory = document.querySelector(".nextStory");
 
-    };
+let storyIndex = 0;
+
+function showStory(index){
+
+    storyCards.forEach(card => card.classList.remove("active"));
+    storyDots.forEach(dot => dot.classList.remove("active"));
+
+    storyCards[index].classList.add("active");
+    storyDots[index].classList.add("active");
 
 }
 
+if(nextStory){
 
-// ===============================
-// Spotify Songs
-// ===============================
+nextStory.onclick=()=>{
 
-const audioPlayer = document.getElementById("audioPlayer");
+storyIndex++;
 
-const playButtons = document.querySelectorAll(".play-song");
+if(storyIndex>=storyCards.length){
 
-playButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const song = button.dataset.song;
-
-        audioPlayer.src = song;
-
-        audioPlayer.play();
-
-    });
-
-});
-
-
-// ===============================
-// Smooth Scroll
-// ===============================
-
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-
-    anchor.addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-        }
-
-    });
-
-});
-
-
-// ===============================
-// Close Popup Outside
-// ===============================
-
-window.onclick = function(e){
-
-    if(e.target === videoPopup){
-
-        videoPopup.style.display="none";
-
-        loveVideo.pause();
-
-    }
-
-    if(e.target === letterPopup){
-
-        letterPopup.style.display="none";
-
-    }
-
-    if(e.target === imageViewer){
-
-        imageViewer.style.display="none";
-
-    }
+storyIndex=0;
 
 }
 
+showStory(storyIndex);
 
-// ===============================
-// Floating Hearts Animation Delay
-// ===============================
+}
 
-const hearts = document.querySelectorAll(".floating-hearts span");
+}
 
-hearts.forEach((heart,index)=>{
+if(prevStory){
 
-    heart.style.animationDelay = (index*1.5)+"s";
+prevStory.onclick=()=>{
+
+storyIndex--;
+
+if(storyIndex<0){
+
+storyIndex=storyCards.length-1;
+
+}
+
+showStory(storyIndex);
+
+}
+
+}
+
+setInterval(()=>{
+
+if(storyCards.length){
+
+storyIndex++;
+
+if(storyIndex>=storyCards.length){
+
+storyIndex=0;
+
+}
+
+showStory(storyIndex);
+
+}
+
+},4500);
+
+
+/* ==========================================
+            MEMORY SLIDER
+========================================== */
+
+const memoryCards=document.querySelectorAll(".memory-card");
+const memoryDots=document.querySelectorAll(".memoryDot");
+const prevMemory=document.querySelector(".prevMemory");
+const nextMemory=document.querySelector(".nextMemory");
+
+let memoryIndex=0;
+
+function showMemory(index){
+
+memoryCards.forEach(card=>card.classList.remove("active"));
+
+memoryDots.forEach(dot=>dot.classList.remove("active"));
+
+memoryCards[index].classList.add("active");
+
+memoryDots[index].classList.add("active");
+
+}
+
+if(nextMemory){
+
+nextMemory.onclick=()=>{
+
+memoryIndex++;
+
+if(memoryIndex>=memoryCards.length){
+
+memoryIndex=0;
+
+}
+
+showMemory(memoryIndex);
+
+}
+
+}
+
+if(prevMemory){
+
+prevMemory.onclick=()=>{
+
+memoryIndex--;
+
+if(memoryIndex<0){
+
+memoryIndex=memoryCards.length-1;
+
+}
+
+showMemory(memoryIndex);
+
+}
+
+}
+
+setInterval(()=>{
+
+if(memoryCards.length){
+
+memoryIndex++;
+
+if(memoryIndex>=memoryCards.length){
+
+memoryIndex=0;
+
+}
+
+showMemory(memoryIndex);
+
+}
+
+},4000);
+
+
+/* ==========================================
+        SMOOTH APPEAR
+========================================== */
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0px)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section").forEach(section=>{
+
+section.style.opacity="0";
+section.style.transform="translateY(40px)";
+section.style.transition=".8s";
+
+observer.observe(section);
 
 });
 
 
-// ===============================
-// Background Music (Optional)
-// ===============================
+/* ==========================================
+        GALLERY PAUSE
+========================================== */
 
-const bgMusic = document.getElementById("backgroundMusic");
+const gallery=document.querySelector(".gallery-track");
 
-document.body.addEventListener("click",()=>{
+if(gallery){
 
-    if(bgMusic){
+gallery.addEventListener("mouseenter",()=>{
 
-        bgMusic.play().catch(()=>{});
+gallery.style.animationPlayState="paused";
 
-    }
+});
 
-},{once:true});
+gallery.addEventListener("mouseleave",()=>{
+
+gallery.style.animationPlayState="running";
+
+});
+
+}
