@@ -1,136 +1,207 @@
-/* ==========================
-   GOOGLE FONT & RESET
-========================== */
+/* ==========================================
+            GOOGLE FONTS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+
+/* ==========================================
+                ROOT COLORS
+========================================== */
+
+:root{
+
+--bg:#F7F1EA;
+--paper:#FFFDF9;
+--pink:#EBCFCB;
+--rose:#DFA7A2;
+--brown:#6C4F4B;
+--text:#4B3A37;
+--white:#ffffff;
+
+}
+
+
+/* ==========================================
+            GLOBAL RESET
+========================================== */
 
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
+
+}
+
+html{
+
 scroll-behavior:smooth;
+
 }
 
 body{
 
-background:#f7efe6;
+background:var(--bg);
 font-family:'Poppins',sans-serif;
-color:#4b3a34;
+color:var(--text);
 overflow-x:hidden;
+
 }
 
 
-/* ==========================
-      HERO SECTION
-========================== */
+/* ==========================================
+            BACKGROUND
+========================================== */
+
+body::before{
+
+content:"";
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at top left,
+rgba(255,255,255,.55),
+transparent 40%),
+
+radial-gradient(circle at bottom right,
+rgba(235,207,203,.45),
+transparent 35%);
+
+z-index:-2;
+
+}
+
+
+/* ==========================================
+        PAPER TEXTURE
+========================================== */
+
+section{
+
+width:100%;
+padding:70px 22px;
+position:relative;
+
+}
+
+.paper,
+.date-paper,
+.festival-paper,
+.letter-paper,
+.bond-paper,
+.fav-paper,
+.ending-paper{
+
+background:var(--paper);
+
+border-radius:22px;
+
+padding:30px;
+
+box-shadow:
+
+0 10px 35px rgba(0,0,0,.08);
+
+border:1px solid rgba(0,0,0,.05);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+/* ==========================================
+            HEADINGS
+========================================== */
+
+.section-heading{
+
+text-align:center;
+margin-bottom:40px;
+
+}
+
+.section-heading span{
+
+font-family:'Parisienne',cursive;
+
+font-size:30px;
+
+color:var(--rose);
+
+display:block;
+
+margin-bottom:10px;
+
+}
+
+.section-heading h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:36px;
+
+font-weight:700;
+
+line-height:1.2;
+
+color:var(--brown);
+
+}
+
+
+/* ==========================================
+            HERO
+========================================== */
 
 .hero{
 
-width:100%;
 min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:25px;
+
+}
+
+.hero .paper{
 
 display:flex;
 
 flex-direction:column;
 
-justify-content:center;
-
-align-items:center;
-
-padding:40px 20px;
-
-text-align:center;
-
-position:relative;
+gap:35px;
 
 }
 
 
-/* ==========================
-      HEADING
-========================== */
-
-.hero h1{
-
-font-family:'Sacramento',cursive;
-
-font-size:58px;
-
-color:#6d4c41;
-
-line-height:1.1;
-
-margin-bottom:15px;
-
-}
-
-.subtitle{
-
-font-size:17px;
-
-line-height:28px;
-
-color:#7a675d;
-
-margin-bottom:30px;
-
-}
-
-
-/* ==========================
-      BUTTON
-========================== */
-
-#surpriseBtn{
-
-background:#b08968;
-
-color:white;
-
-border:none;
-
-padding:14px 28px;
-
-border-radius:40px;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:.4s;
-
-box-shadow:0 8px 18px rgba(0,0,0,.12);
-
-}
-
-#surpriseBtn:hover{
-
-background:#8d6e63;
-
-transform:translateY(-3px);
-
-}
-
-
-/* ==========================
-      POLAROID
-========================== */
+/* ==========================================
+            POLAROID
+========================================== */
 
 .polaroid{
 
-width:270px;
-
 background:white;
 
-padding:15px;
+padding:12px 12px 40px;
 
-margin-top:40px;
+border-radius:10px;
 
-border-radius:12px;
+box-shadow:
 
-box-shadow:0 12px 25px rgba(0,0,0,.18);
+0 10px 25px rgba(0,0,0,.12);
 
-transform:rotate(-4deg);
-
-position:relative;
+transform:rotate(-2deg);
 
 }
 
@@ -138,30 +209,71 @@ position:relative;
 
 width:100%;
 
-height:320px;
-
-object-fit:cover;
-
-border-radius:8px;
-
 display:block;
+
+border-radius:6px;
 
 }
 
-.polaroid p{
+.polaroid span{
+
+display:block;
+
+text-align:center;
 
 margin-top:12px;
+
+font-family:'Parisienne',cursive;
+
+font-size:25px;
+
+color:var(--brown);
+
+}
+
+
+/* ==========================================
+            BUTTON
+========================================== */
+
+button{
+
+background:var(--pink);
+
+border:none;
+
+padding:14px 30px;
+
+border-radius:50px;
 
 font-size:16px;
 
 font-weight:600;
 
-color:#7b5e57;
+color:var(--brown);
+
+cursor:pointer;
+
+transition:.35s;
+
+box-shadow:
+
+0 8px 20px rgba(223,167,162,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+background:#F1D9D5;
 
 }
 
 
-/* Tape */
+/* ==========================================
+        DECORATIVE TAPE
+========================================== */
 
 .tape{
 
@@ -169,602 +281,286 @@ position:absolute;
 
 width:70px;
 
-height:18px;
+height:22px;
 
-background:rgba(255,255,255,.65);
+background:rgba(255,248,220,.65);
+
+backdrop-filter:blur(3px);
+
+transform:rotate(-10deg);
+
+border-radius:4px;
+
+opacity:.85;
+
+}
+/* ==========================================
+            HERO CONTENT
+========================================== */
+
+.hero-text{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 
 }
 
-.tape1{
+.mini-title{
 
-top:-8px;
+font-family:'Parisienne',cursive;
+font-size:28px;
+color:var(--rose);
+margin-bottom:10px;
 
+}
+
+.hero-text h1{
+
+font-family:'Cormorant Garamond',serif;
+font-size:52px;
+line-height:1.1;
+color:var(--brown);
+margin-bottom:15px;
+
+}
+
+.hero-text h2{
+
+font-family:'Parisienne',cursive;
+font-size:40px;
+color:#c78687;
+margin-bottom:20px;
+
+}
+
+.intro{
+
+max-width:330px;
+
+line-height:1.9;
+
+font-size:15px;
+
+color:#6c5a56;
+
+margin-bottom:25px;
+
+}
+
+
+/* ==========================================
+            HERO IMAGE
+========================================== */
+
+.hero-image{
+
+display:flex;
+justify-content:center;
+
+}
+
+.hero-image img{
+
+height:420px;
+object-fit:cover;
+
+}
+
+
+/* ==========================================
+            FLOATING FLOWERS
+========================================== */
+
+.flower{
+
+position:absolute;
+width:45px;
+opacity:.8;
+animation:float 6s ease-in-out infinite;
+
+}
+
+.flower1{
+
+top:35px;
 left:18px;
 
-transform:rotate(-20deg);
-
 }
 
-.tape2{
+.flower2{
 
-top:-8px;
-
-right:18px;
-
-transform:rotate(18deg);
+bottom:40px;
+right:20px;
 
 }
 
 
-/* ==========================
-     HEARTS
-========================== */
+/* ==========================================
+            SPARKLES
+========================================== */
+
+.sparkle{
+
+position:absolute;
+font-size:20px;
+color:#d9a5a2;
+animation:blink 2s infinite;
+
+}
+
+.sparkle1{
+
+top:70px;
+right:60px;
+
+}
+
+.sparkle2{
+
+bottom:90px;
+left:50px;
+
+}
+
+.spark{
+
+position:absolute;
+font-size:22px;
+color:#d89c98;
+
+}
+
+.sparkle3{
+
+left:35px;
+bottom:120px;
+
+}
+
+.sparkle4{
+
+right:35px;
+top:150px;
+
+}
+
+
+/* ==========================================
+            HEARTS
+========================================== */
 
 .heart{
 
 position:absolute;
+font-size:22px;
+opacity:.6;
 
-font-size:26px;
-
-opacity:.35;
-
-animation:float 5s infinite;
+animation:floatHeart 5s infinite;
 
 }
 
 .heart1{
 
-top:70px;
-
-left:30px;
+left:20px;
+top:45%;
 
 }
 
 .heart2{
 
-right:35px;
-
-top:180px;
+right:18px;
+top:30%;
 
 }
 
 .heart3{
 
-bottom:100px;
-
-left:50px;
-
-}
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-12px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
+bottom:20px;
+left:50%;
 
 }
 
 
-/* ==========================
-      FLOWERS
-========================== */
+/* ==========================================
+            STAMP
+========================================== */
 
-.flower{
+.stamp{
 
 position:absolute;
 
-font-size:30px;
+top:18px;
+right:18px;
 
-opacity:.8;
+border:2px dashed #d89c98;
 
-}
+padding:12px;
 
-.flower-left{
-
-left:10px;
-
-bottom:120px;
-
-}
-
-.flower-right{
-
-right:10px;
-
-top:220px;
-
-}
-
-.flower-top{
-
-top:25px;
-
-right:20px;
-
-}
-
-.flower-bottom{
-
-bottom:25px;
-
-left:25px;
-
-}
-
-
-/* ==========================
-     SCROLL TEXT
-========================== */
-
-.scroll-text{
-
-margin-top:45px;
-
-font-size:16px;
+font-size:12px;
 
 font-weight:600;
 
-color:#8d6e63;
+color:#b17d7d;
 
-}
+border-radius:8px;
 
-.scroll-text span{
+transform:rotate(12deg);
 
-display:block;
-
-font-size:22px;
-
-margin-top:8px;
+background:#fff7f6;
 
 }
 
 
-/* ==========================
-      MOBILE
-========================== */
+/* ==========================================
+            SCROLL TEXT
+========================================== */
 
-@media(max-width:480px){
-
-.hero{
-
-padding:30px 18px;
-
-}
-
-.hero h1{
-
-font-size:48px;
-
-}
-
-.subtitle{
-
-font-size:15px;
-
-line-height:25px;
-
-}
-
-.polaroid{
-
-width:235px;
-
-}
-
-.polaroid img{
-
-height:290px;
-
-}
-
-#surpriseBtn{
-
-width:100%;
-
-max-width:260px;
-
-}
-
-}
-/* ===================================
-      EXPLORE OUR WORLD
-=================================== */
-
-.explore{
-
-padding:70px 20px;
+.scroll-text{
 
 text-align:center;
 
-background:#fbf6f1;
+font-family:'Parisienne',cursive;
 
-}
+font-size:28px;
 
-.explore h2{
+color:#bf8c8c;
 
-font-size:36px;
-
-font-family:'Sacramento',cursive;
-
-color:#7b5e57;
-
-margin-bottom:12px;
-
-}
-
-.explore p{
-
-font-size:15px;
-
-color:#7a6d67;
-
+margin-top:25px;
 margin-bottom:35px;
 
-line-height:26px;
-
 }
 
 
-/* ==========================
-        FEATURE CARDS
-========================== */
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-
-gap:18px;
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.card{
-
-background:#fffaf5;
-
-padding:22px 15
-/* ===================================
-        OUR ADVENTURE
-=================================== */
-
-.adventure-section{
-
-padding:70px 20px;
-
-background:#fffaf5;
-
-text-align:center;
-
-}
-
-.adventure-section h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:36px;
-
-color:#6d4c41;
-
-margin-bottom:10px;
-
-}
-
-.adventure-section p{
-
-color:#7a675d;
-
-margin-bottom:35px;
-
-line-height:26px;
-
-}
-
-
-/* Adventure Gallery */
-
-.adventure-gallery{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:22px;
-
-max-width:1000px;
-
-margin:auto;
-
-}
-
-.adventure-card{
-
-background:#ffffff;
-
-padding:14px;
-
-border-radius:18px;
-
-box-shadow:0 10px 22px rgba(0,0,0,.08);
-
-transition:.35s;
-
-cursor:pointer;
-
-}
-
-.adventure-card:hover{
-
-transform:translateY(-8px);
-
-}
-
-.adventure-card img{
-
-width:100%;
-
-height:250px;
-
-object-fit:cover;
-
-border-radius:14px;
-
-background:#ece2d6;
-
-}
-
-
-/* ===================================
-        PLAYLIST
-=================================== */
-
-.playlist-section{
-
-padding:70px 20px;
-
-background:#faf3ec;
-
-text-align:center;
-
-}
-
-.playlist-section h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:36px;
-
-color:#6d4c41;
-
-margin-bottom:10px;
-
-}
-
-.playlist-section p{
-
-margin-bottom:35px;
-
-color:#7a675d;
-
-}
-
-.playlist-container{
-
-max-width:650px;
-
-margin:auto;
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-
-/* Spotify Card */
-
-.song-card{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-background:#ffffff;
-
-padding:15px;
-
-border-radius:18px;
-
-box-shadow:0 8px 18px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.song-card:hover{
-
-transform:scale(1.02);
-
-}
-
-.song-card img{
-
-width:65px;
-
-height:65
-/* ===================================
-        LETTERS SECTION
-=================================== */
-
-.letters-section{
-padding:70px 20px;
-background:#fffaf5;
-text-align:center;
-}
-
-.letters-section h2{
-font-family:'Sacramento',cursive;
-font-size:36px;
-color:#6d4c41;
-margin-bottom:10px;
-}
-
-.letters-section p{
-color:#7a675d;
-margin-bottom:30px;
-}
-
-.letter-card{
-max-width:320px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-.letter-icon{
-font-size:55px;
-margin-bottom:20px;
-}
-
-#openLetter{
-padding:14px 30px;
-background:#b08968;
-color:white;
-border:none;
-border-radius:40px;
-cursor:pointer;
-transition:.3s;
-}
-
-#openLetter:hover{
-background:#8d6e63;
-}
-
-
-/* ===============================
-       LETTER POPUP
-================================ */
-
-.letter-popup,
-.video-popup,
-.image-viewer{
+/* ==========================================
+            VIDEO POPUP
+========================================== */
+
+.video-popup{
 
 display:none;
 
 position:fixed;
 
-top:0;
 left:0;
+top:0;
 
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,.65);
+background:rgba(0,0,0,.7);
 
 justify-content:center;
-
 align-items:center;
 
-z-index:999;
+z-index:9999;
 
 }
-
-.letter-paper{
-
-width:90%;
-max-width:500px;
-
-background:#fff8ef;
-
-padding:30px;
-
-border-radius:18px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-
-position:relative;
-
-max-height:85vh;
-
-overflow:auto;
-
-}
-
-.letter-paper h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:40px;
-
-margin-bottom:20px;
-
-color:#795548;
-
-}
-
-.letter-paper p{
-
-line-height:32px;
-
-font-size:16px;
-
-color:#5d4037;
-
-}
-
-.close-letter,
-.close-video,
-.close-image{
-
-position:absolute;
-
-top:15px;
-
-right:18px;
-
-font-size:30px;
-
-cursor:pointer;
-
-color:#795548;
-
-}
-
-
-/* ===============================
-        VIDEO POPUP
-================================ */
 
 .video-box{
 
-width:90%;
-
-max-width:700px;
-
+width:92%;
 background:white;
 
 padding:15px;
@@ -778,103 +574,929 @@ position:relative;
 .video-box video{
 
 width:100%;
+border-radius:15px;
+
+}
+
+#closeVideo{
+
+position:absolute;
+
+top:8px;
+right:15px;
+
+font-size:34px;
+
+cursor:pointer;
+
+color:#b47d7d;
+
+}
+
+
+/* ==========================================
+            DIVIDER
+========================================== */
+
+.divider{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:15px;
+
+margin:60px 0;
+
+}
+
+.divider-line{
+
+height:1px;
+
+width:90px;
+
+background:#d6b6b3;
+
+}
+
+.divider-heart{
+
+font-size:24px;
+
+color:#bf8c8c;
+
+}
+
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.hero .paper{
+
+padding:22px;
+
+}
+
+.hero-text h1{
+
+font-size:40px;
+
+}
+
+.hero-text h2{
+
+font-size:34px;
+
+}
+
+.hero-image img{
+
+height:330px;
+
+}
+
+.intro{
+
+font-size:14px;
+
+}
+
+}
+/* ==========================================
+            STORY SECTION
+========================================== */
+
+.story-section{
+
+padding-top:40px;
+
+}
+
+.story-container{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:18px;
+
+margin-top:25px;
+
+}
+
+.story-slider{
+
+width:100%;
+
+max-width:360px;
+
+overflow:hidden;
+
+}
+
+.story-card{
+
+display:none;
+
+background:#FFFDF9;
+
+border-radius:22px;
+
+padding:18px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+animation:fade .5s ease;
+
+}
+
+.story-card.active{
+
+display:block;
+
+}
+
+.story-card img{
+
+width:100%;
+
+height:360px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+margin-bottom:15px;
+
+}
+
+.story-card h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:30px;
+
+color:var(--brown);
+
+margin-bottom:10px;
+
+}
+
+.story-card p{
+
+line-height:1.8;
+
+font-size:14px;
+
+color:#6d5956;
+
+}
+
+.year-tag{
+
+display:inline-block;
+
+background:#F6DEDA;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+margin-bottom:15px;
+
+font-weight:600;
+
+color:#9c6b6b;
+
+}
+
+.story-btn{
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+font-size:20px;
+
+padding:0;
+
+}
+
+.story-dots{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+margin-top:20px;
+
+}
+
+.dot{
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:#d8c7c4;
+
+}
+
+.dot.active{
+
+background:#cf9895;
+
+}
+
+
+/* ==========================================
+        MEMORIES
+========================================== */
+
+.memories-container{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:18px;
+
+margin-top:30px;
+
+}
+
+.memory-slider{
+
+width:100%;
+
+max-width:340px;
+
+overflow:hidden;
+/* ==========================================
+        FAVOURITE PLACE
+========================================== */
+
+.fav-place-wrapper{
+
+margin-top:35px;
+
+}
+
+.fav-paper{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.fav-image img{
+
+width:100%;
+
+height:420px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+}
+
+.fav-content h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:34px;
+
+color:var(--brown);
+
+margin-bottom:15px;
+
+}
+
+.fav-content p{
+
+line-height:1.9;
+
+font-size:15px;
+
+color:#6d5956;
+
+}
+
+.mini-stamp{
+
+position:absolute;
+
+right:20px;
+
+top:20px;
+
+padding:10px 14px;
+
+border:2px dashed #d9a7a3;
+
+border-radius:10px;
+
+background:#fff7f6;
+
+font-size:12px;
+
+color:#a97c78;
+
+transform:rotate(10deg);
+
+}
+
+.section-divider{
+
+display:flex;
+
+justify-content:center;
+
+margin:35px 0;
+
+font-size:32px;
+
+color:#cf9b97;
+
+}
+
+
+
+/* ==========================================
+            FESTIVAL
+========================================== */
+
+.festival-wrapper{
+
+margin-top:25px;
+
+}
+
+.festival-paper{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.festival-image img{
+
+width:100%;
+
+height:420px;
+
+border-radius:18px;
+
+object-fit:cover;
+
+}
+
+.festival-content h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:34px;
+
+margin-bottom:15px;
+
+color:var(--brown);
+
+}
+
+.festival-content p{
+
+line-height:1.9;
+
+color:#6d5956;
+
+}
+
+.festival-quote{
+
+margin-top:25px;
+
+text-align:center;
+
+font-family:'Parisienne',cursive;
+
+font-size:30px;
+
+color:#bc8885;
+
+}
+
+
+
+/* ==========================================
+            LETTER
+========================================== */
+
+.letter-paper{
+
+padding:35px;
+
+position:relative;
+
+background:#fffdf8;
+
+}
+
+.wax-seal{
+
+position:absolute;
+
+right:25px;
+
+top:20px;
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+background:#d18b8b;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+color:white;
+
+font-size:22px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+.letter-content{
+
+margin-top:35px;
+
+}
+
+.letter-content p{
+
+line-height:2;
+
+font-size:15px;
+
+margin-bottom:15px;
+
+color:#5f4c49;
+
+}
+
+.letter-content strong{
+
+color:#a26f6d;
+
+}
+
+
+
+/* ==========================================
+            OUR BOND
+========================================== */
+
+.bond-paper{
+
+padding:35px;
+
+}
+
+.bond-paper ul{
+
+list-style:none;
+
+}
+
+.bond-paper li{
+
+margin-bottom:18px;
+
+padding:16px;
+
+background:#fbf5f2;
+
+border-radius:14px;
+
+font-size:15px;
+
+box-shadow:0 5px 12px rgba(0,0,0,.05);
+
+}
+
+.bond-pin{
+
+position:absolute;
+
+top:18px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:16px;
+
+height:16px;
+
+background:#cf9393;
+
+border-radius:50%;
+
+}
+
+
+
+/* ==========================================
+        WHY YOU'RE SO SPECIAL
+========================================== */
+
+.special-card{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.special-item{
+
+background:#fffdf9;
+
+padding:18px;
+
+border-radius:18px;
+
+line-height:1.8;
+
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+font-size:15px;
+
+transition:.35s;
+
+}
+
+.special-item:hover{
+
+transform:translateY(-5px);
+
+background:#fff8f7;
+
+}
+/* ==========================================
+            GALLERY
+========================================== */
+
+.gallery-section{
+
+padding-bottom:70px;
+
+}
+
+.gallery-slider{
+
+overflow:hidden;
+
+width:100%;
+
+margin-top:30px;
+
+}
+
+.gallery-track{
+
+display:flex;
+
+gap:16px;
+
+animation:galleryMove 18s linear infinite;
+
+}
+
+.gallery-item{
+
+min-width:120px;
+
+height:120px;
+
+background:#fff;
+
+padding:8px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+transform:rotate(-2deg);
+
+}
+
+.gallery-item:nth-child(even){
+
+transform:rotate(2deg);
+
+}
+
+.gallery-item img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
 
 border-radius:12px;
 
 }
 
 
-/* ===============================
-      IMAGE VIEWER
-================================ */
 
-.image-viewer img{
+/* ==========================================
+            ENDING
+========================================== */
 
-max-width:90%;
-
-max-height:90%;
-
-border-radius:15px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-
-}
-
-
-/* ===============================
-         OUR BOND
-================================ */
-
-.bond-section{
-
-padding:70px 20px;
+.ending-paper{
 
 text-align:center;
 
-background:#faf3ec;
+padding:45px 30px;
 
 }
 
-.bond-card,
-.special-card{
+.ending-paper h2{
 
-background:white;
+font-family:'Parisienne',cursive;
 
-max-width:650px;
+font-size:44px;
 
-margin:25px auto;
+color:#b37b79;
+
+margin-bottom:25px;
+
+}
+
+.ending-paper p{
+
+line-height:2;
+
+font-size:15px;
+
+color:#6d5956;
+
+margin-bottom:30px;
+
+}
+
+.signature{
+
+font-family:'Parisienne',cursive;
+
+font-size:30px;
+
+color:#9d6e6b;
+
+}
+
+.ending-stamp{
+
+display:inline-block;
+
+padding:12px 20px;
+
+border:2px dashed #d9a4a1;
+
+border-radius:12px;
+
+margin-bottom:25px;
+
+color:#af7f7c;
+
+background:#fff8f7;
+
+transform:rotate(-5deg);
+
+}
+
+
+
+/* ==========================================
+            FOOTER
+========================================== */
+
+footer{
 
 padding:30px;
 
-border-radius:20px;
+text-align:center;
 
-box-shadow:0 10px 20px rgba(0,0,0,.08);
+font-size:14px;
+
+color:#8d706d;
 
 }
 
-.bond-card p{
+footer span{
+
+color:#d08f8f;
 
 font-size:20px;
 
-line-height:38px;
-
-color:#6d4c41;
-
-}
-
-.special-card h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:38px;
-
-margin-bottom:20px;
-
-color:#6d4c41;
-
-}
-
-.special-card ul{
-
-list-style:none;
-
-text-align:left;
-
-}
-
-.special-card li{
-
-margin:15px 0;
-
-padding-left:12px;
-
-font-size:16px;
-
-color:#5d4037;
-
 }
 
 
-/* ===============================
-           FOOTER
-================================ */
+
+/* ==========================================
+        FLOATING ANIMATIONS
+========================================== */
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+@keyframes floatHeart{
+
+0%{
+
+transform:translateY(0px);
+
+opacity:.6;
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+opacity:.6;
+
+}
+
+}
+
+@keyframes blink{
+
+0%{
+
+opacity:.3;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.3;
+
+}
+
+}
+
+@keyframes galleryMove{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-50%);
+
+}
+
+}
+
+
+
+/* ==========================================
+        CUSTOM SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#f8f0eb;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#d6a09d;
+
+border-radius:20px;
+
+}
+
+
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+.story-card img,
+.memory-polaroid img,
+.date-image img,
+.fav-image img,
+.festival-image img{
+
+height:330px;
+
+}
+
+.gallery-item{
+
+min-width:95px;
+
+height:95px;
+
+}
+
+.ending-paper h2{
+
+font-size:36px;
+
+}
+
+.section-heading h2{
+
+font-size:30px;
+
+}
+
+button{
+
+padding:12px 24px;
+
+font-size:15px;
+
+}
+
+}
