@@ -1,69 +1,65 @@
-/* ==========================================
-        SURPRISE VIDEO + MUSIC
-========================================== */
+// ======================================
+// VIDEO + MUSIC
+// ======================================
 
 const surpriseBtn = document.getElementById("surpriseBtn");
 const videoPopup = document.getElementById("videoPopup");
 const closeVideo = document.getElementById("closeVideo");
-const surpriseVideo = document.getElementById("surpriseVideo");
-const bgMusic = document.getElementById("bgMusic");
+const video = document.getElementById("surpriseVideo");
+const music = document.getElementById("bgMusic");
 
 if (surpriseBtn) {
-    surpriseBtn.addEventListener("click", () => {
-        videoPopup.style.display = "flex";
-        surpriseVideo.play();
-
-        if (bgMusic) {
-            bgMusic.play().catch(() => {});
-        }
-    });
+  surpriseBtn.addEventListener("click", () => {
+    videoPopup.style.display = "flex";
+    video.currentTime = 0;
+    video.play().catch(() => {});
+    music.play().catch(() => {});
+  });
 }
 
 if (closeVideo) {
-    closeVideo.addEventListener("click", () => {
-        videoPopup.style.display = "none";
-        surpriseVideo.pause();
-        surpriseVideo.currentTime = 0;
-    });
+  closeVideo.addEventListener("click", () => {
+    video.pause();
+    videoPopup.style.display = "none";
+  });
 }
 
 window.addEventListener("click", (e) => {
-    if (e.target === videoPopup) {
-        videoPopup.style.display = "none";
-        surpriseVideo.pause();
-        surpriseVideo.currentTime = 0;
-    }
+  if (e.target === videoPopup) {
+    video.pause();
+    videoPopup.style.display = "none";
+  }
 });
 
 
-/* ==========================================
-            STORY SLIDER
-========================================== */
+// ======================================
+// STORY SLIDER
+// ======================================
 
-const storyCards = document.querySelectorAll(".story-card");
+const stories = document.querySelectorAll(".story-card");
 const storyDots = document.querySelectorAll(".dot");
-const prevStory = document.querySelector(".prevStory");
 const nextStory = document.querySelector(".nextStory");
+const prevStory = document.querySelector(".prevStory");
 
 let storyIndex = 0;
 
 function showStory(index){
 
-    storyCards.forEach(card => card.classList.remove("active"));
-    storyDots.forEach(dot => dot.classList.remove("active"));
+stories.forEach(card=>card.classList.remove("active"));
+storyDots.forEach(dot=>dot.classList.remove("active"));
 
-    storyCards[index].classList.add("active");
-    storyDots[index].classList.add("active");
+stories[index].classList.add("active");
+storyDots[index].classList.add("active");
 
 }
 
 if(nextStory){
 
-nextStory.onclick=()=>{
+nextStory.onclick=function(){
 
 storyIndex++;
 
-if(storyIndex>=storyCards.length){
+if(storyIndex>=stories.length){
 
 storyIndex=0;
 
@@ -71,35 +67,35 @@ storyIndex=0;
 
 showStory(storyIndex);
 
-}
+};
 
 }
 
 if(prevStory){
 
-prevStory.onclick=()=>{
+prevStory.onclick=function(){
 
 storyIndex--;
 
 if(storyIndex<0){
 
-storyIndex=storyCards.length-1;
+storyIndex=stories.length-1;
 
 }
 
 showStory(storyIndex);
 
-}
+};
 
 }
 
 setInterval(()=>{
 
-if(storyCards.length){
+if(stories.length>0){
 
 storyIndex++;
 
-if(storyIndex>=storyCards.length){
+if(storyIndex>=stories.length){
 
 storyIndex=0;
 
@@ -109,27 +105,27 @@ showStory(storyIndex);
 
 }
 
-},4500);
+},4000);
 
 
-/* ==========================================
-            MEMORY SLIDER
-========================================== */
+// ======================================
+// MEMORY SLIDER
+// ======================================
 
-const memoryCards=document.querySelectorAll(".memory-card");
+const memories=document.querySelectorAll(".memory-card");
 const memoryDots=document.querySelectorAll(".memoryDot");
-const prevMemory=document.querySelector(".prevMemory");
 const nextMemory=document.querySelector(".nextMemory");
+const prevMemory=document.querySelector(".prevMemory");
 
 let memoryIndex=0;
 
 function showMemory(index){
 
-memoryCards.forEach(card=>card.classList.remove("active"));
+memories.forEach(card=>card.classList.remove("active"));
 
 memoryDots.forEach(dot=>dot.classList.remove("active"));
 
-memoryCards[index].classList.add("active");
+memories[index].classList.add("active");
 
 memoryDots[index].classList.add("active");
 
@@ -137,11 +133,11 @@ memoryDots[index].classList.add("active");
 
 if(nextMemory){
 
-nextMemory.onclick=()=>{
+nextMemory.onclick=function(){
 
 memoryIndex++;
 
-if(memoryIndex>=memoryCards.length){
+if(memoryIndex>=memories.length){
 
 memoryIndex=0;
 
@@ -149,35 +145,35 @@ memoryIndex=0;
 
 showMemory(memoryIndex);
 
-}
+};
 
 }
 
 if(prevMemory){
 
-prevMemory.onclick=()=>{
+prevMemory.onclick=function(){
 
 memoryIndex--;
 
 if(memoryIndex<0){
 
-memoryIndex=memoryCards.length-1;
+memoryIndex=memories.length-1;
 
 }
 
 showMemory(memoryIndex);
 
-}
+};
 
 }
 
 setInterval(()=>{
 
-if(memoryCards.length){
+if(memories.length>0){
 
 memoryIndex++;
 
-if(memoryIndex>=memoryCards.length){
+if(memoryIndex>=memories.length){
 
 memoryIndex=0;
 
@@ -187,22 +183,20 @@ showMemory(memoryIndex);
 
 }
 
-},4000);
+},4500);
 
 
-/* ==========================================
-        SMOOTH APPEAR
-========================================== */
+// ======================================
+// FADE ANIMATION
+// ======================================
 
-const observer=new IntersectionObserver(entries=>{
+const observer=new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
 if(entry.isIntersecting){
 
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0px)";
+entry.target.classList.add("show");
 
 }
 
@@ -210,35 +204,23 @@ entry.target.style.transform="translateY(0px)";
 
 });
 
-document.querySelectorAll("section").forEach(section=>{
+document.querySelectorAll("section").forEach(sec=>{
 
-section.style.opacity="0";
-section.style.transform="translateY(40px)";
-section.style.transition=".8s";
+sec.classList.add("fade-up");
 
-observer.observe(section);
+observer.observe(sec);
 
 });
 
 
-/* ==========================================
-        GALLERY PAUSE
-========================================== */
+// ======================================
+// GALLERY AUTO SCROLL
+// ======================================
 
-const gallery=document.querySelector(".gallery-track");
+const galleryTrack=document.querySelector(".gallery-track");
 
-if(gallery){
+if(galleryTrack){
 
-gallery.addEventListener("mouseenter",()=>{
-
-gallery.style.animationPlayState="paused";
-
-});
-
-gallery.addEventListener("mouseleave",()=>{
-
-gallery.style.animationPlayState="running";
-
-});
+galleryTrack.innerHTML+=galleryTrack.innerHTML;
 
 }
