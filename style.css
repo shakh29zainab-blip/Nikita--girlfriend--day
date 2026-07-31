@@ -1,2556 +1,256 @@
-/* =====================================================
-        GOOGLE FONT
-===================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;500;600&display=swap');
-
-/* =====================================================
-        RESET
-===================================================== */
+/* ==========================
+   GOOGLE FONT & RESET
+========================== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-}
-
-html{
 scroll-behavior:smooth;
 }
 
 body{
 
-background:#F7EFE8;
-
+background:#f7efe6;
 font-family:'Poppins',sans-serif;
-
-color:#6B5959;
-
+color:#4b3a34;
 overflow-x:hidden;
-
-position:relative;
-
-}
-
-/* =====================================================
-      BACKGROUND EMOJIS
-===================================================== */
-
-.background-hearts{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-pointer-events:none;
-
-opacity:.12;
-
-font-size:22px;
-
-display:flex;
-
-justify-content:space-evenly;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-line-height:70px;
-
-z-index:-1;
-
 }
 
 
-
-/* =====================================================
-        NAVBAR
-===================================================== */
-
-header{
-
-position:sticky;
-
-top:0;
-
-background:rgba(247,239,232,.92);
-
-backdrop-filter:blur(12px);
-
-padding:18px;
-
-z-index:999;
-
-border-bottom:1px solid #ead7d7;
-
-}
-
-nav{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-max-width:430px;
-
-margin:auto;
-
-}
-
-.logo{
-
-font-family:'Sacramento',cursive;
-
-font-size:34px;
-
-color:#d67892;
-
-}
-
-nav ul{
-
-display:flex;
-
-gap:12px;
-
-list-style:none;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-font-size:13px;
-
-font-weight:500;
-
-color:#866d6d;
-
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:#E78FA7;
-
-}
-
-
-
-/* =====================================================
-        HERO
-===================================================== */
+/* ==========================
+      HERO SECTION
+========================== */
 
 .hero{
 
-max-width:430px;
-
-margin:auto;
-
-padding:30px 18px 60px;
+width:100%;
+min-height:100vh;
 
 display:flex;
 
 flex-direction:column;
 
+justify-content:center;
+
 align-items:center;
 
-}
+padding:40px 20px;
 
-
-
-/* =====================================================
-        PAPER
-===================================================== */
-
-.paper{
-
-background:#FFFDF9;
-
-padding:28px;
-
-border-radius:28px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
 
 position:relative;
 
-margin-bottom:35px;
-
 }
 
-.paper::before{
 
-content:"";
+/* ==========================
+      HEADING
+========================== */
 
-position:absolute;
-
-top:-10px;
-
-left:35px;
-
-width:70px;
-
-height:22px;
-
-background:#F3D6BF;
-
-opacity:.9;
-
-border-radius:4px;
-
-transform:rotate(-6deg);
-
-}
-
-.tag{
-
-display:inline-block;
-
-background:#F8D8DF;
-
-padding:8px 18px;
-
-border-radius:50px;
-
-font-size:12px;
-
-margin-bottom:18px;
-
-color:#B86980;
-
-font-weight:600;
-
-}
-
-.paper h1{
+.hero h1{
 
 font-family:'Sacramento',cursive;
 
 font-size:58px;
 
+color:#6d4c41;
+
 line-height:1.1;
-
-color:#D57B93;
-
-margin-bottom:18px;
-
-}
-
-.paper p{
-
-font-size:15px;
-
-line-height:2;
-
-color:#7B6969;
-
-}
-
-
-
-/* =====================================================
-        BUTTON
-===================================================== */
-
-.btn{
-
-display:inline-block;
-
-margin-top:28px;
-
-padding:14px 28px;
-
-background:#F4C5D2;
-
-border-radius:50px;
-
-text-decoration:none;
-
-font-weight:600;
-
-color:white;
-
-box-shadow:0 8px 20px rgba(233,155,180,.35);
-
-transition:.35s;
-
-}
-
-.btn:hover{
-
-transform:translateY(-4px);
-
-background:#EA9FB4;
-
-}
-
-
-
-/* =====================================================
-      POLAROID
-===================================================== */
-
-.polaroid{
-
-background:white;
-
-padding:12px;
-
-border-radius:12px;
-
-box-shadow:0 12px 25px rgba(0,0,0,.08);
-
-width:260px;
-
-transform:rotate(-3deg);
-
-position:relative;
-
-}
-
-.tape{
-
-width:80px;
-
-height:20px;
-
-background:#F4DFC7;
-
-position:absolute;
-
-top:-10px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-4deg);
-
-border-radius:4px;
-
-opacity:.9;
-
-}
-
-.photo{
-
-height:300px;
-
-background:#F3EFEA;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-color:#B7AFAF;
-
-border-radius:6px;
-
-}
-
-.polaroid p{
-
-text-align:center;
-
-margin-top:12px;
-
-font-size:14px;
-
-color:#8A7777;
-
-}
-
-
-
-/* =====================================================
-      MOBILE
-===================================================== */
-
-@media(max-width:430px){
-
-.paper h1{
-
-font-size:50px;
-
-}
-
-nav ul{
-
-gap:8px;
-
-}
-
-nav a{
-
-font-size:11px;
-
-}
-
-.polaroid{
-
-width:230px;
-
-}
-
-.photo{
-
-height:270px;
-
-}
-
-}
-/* =====================================================
-                SURPRISE SECTION
-===================================================== */
-
-.surprise{
-
-max-width:430px;
-
-margin:60px auto;
-
-padding:20px;
-
-}
-
-.surprise-paper{
-
-background:#FFFDF9;
-
-padding:28px;
-
-border-radius:25px;
-
-position:relative;
-
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-}
-
-.surprise-paper::before{
-
-content:"";
-
-position:absolute;
-
-top:-12px;
-
-right:35px;
-
-width:70px;
-
-height:22px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-transform:rotate(8deg);
-
-}
-
-.surprise-paper h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:48px;
-
-color:#D57B93;
-
-margin-bottom:18px;
-
-text-align:center;
-
-}
-
-.surprise-paper p{
-
-font-size:15px;
-
-line-height:2;
-
-text-align:center;
-
-color:#776565;
-
-}
-
-.video-box{
-
-margin-top:28px;
-
-height:220px;
-
-background:#F5F0EB;
-
-border:3px dashed #E7C8CF;
-
-border-radius:20px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-weight:600;
-
-color:#B7A6A6;
-
-}
-
-.video-note{
-
-margin-top:14px;
-
-font-size:12px;
-
-color:#A28C8C;
-
-text-align:center;
-
-}
-
-
-
-/* =====================================================
-            EXPLORE SECTION
-===================================================== */
-
-.explore{
-
-max-width:430px;
-
-margin:60px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-.explore h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:52px;
-
-color:#D57B93;
-
-}
-
-.explore p{
-
-margin-top:10px;
-
-color:#7A6A6A;
-
-line-height:1.8;
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:18px;
-
-margin-top:35px;
-
-}
-
-.card{
-
-background:#FFFDF9;
-
-padding:22px 18px;
-
-border-radius:22px;
-
-position:relative;
-
-box-shadow:0 10px 22px rgba(0,0,0,.06);
-
-transition:.35s;
-
-overflow:hidden;
-
-}
-
-
-
-/* masking tape */
-
-.card::before{
-
-content:"";
-
-position:absolute;
-
-top:-8px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-5deg);
-
-width:55px;
-
-height:18px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-opacity:.95;
-
-}
-
-
-
-/* little flower */
-
-.card::after{
-
-content:"🌸";
-
-position:absolute;
-
-right:12px;
-
-bottom:10px;
-
-font-size:18px;
-
-opacity:.75;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-8px) rotate(-1deg);
-
-}
-
-
-
-.emoji{
-
-font-size:38px;
-
-margin-bottom:12px;
-
-}
-
-
-
-.card h3{
-
-font-size:17px;
-
-color:#C86B86;
-
-margin-bottom:10px;
-
-}
-
-
-
-.card p{
-
-font-size:13px;
-
-line-height:1.7;
-
-color:#7B6D6D;
-
-}
-
-
-
-/* ====================================
-      Mobile
-==================================== */
-
-@media(max-width:430px){
-
-.cards{
-
-grid-template-columns:1fr;
-
-}
-
-.surprise-paper h2{
-
-font-size:42px;
-
-}
-
-}
-/* =====================================================
-                OUR STORY
-===================================================== */
-
-.story{
-
-max-width:430px;
-
-margin:70px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-.section-title h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:52px;
-
-color:#D57B93;
-
-margin-bottom:12px;
-
-}
-
-.section-title p{
-
-color:#7A6A6A;
-
-line-height:1.8;
-
-margin-bottom:35px;
-
-}
-
-
-
-/* ===============================
-        STORY GALLERY
-================================ */
-
-.story-gallery{
-
-display:flex;
-
-flex-direction:column;
-
-gap:28px;
-
-align-items:center;
-
-}
-
-
-
-/* Polaroid */
-
-.polaroid-card{
-
-width:270px;
-
-background:white;
-
-padding:12px;
-
-border-radius:12px;
-
-position:relative;
-
-box-shadow:0 12px 25px rgba(0,0,0,.08);
-
-}
-
-
-
-/* masking tape */
-
-.masking-tape{
-
-position:absolute;
-
-top:-10px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-4deg);
-
-width:75px;
-
-height:20px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-}
-
-
-
-/* Rotate every card */
-
-.polaroid-card:nth-child(1){
-
-transform:rotate(-3deg);
-
-}
-
-.polaroid-card:nth-child(2){
-
-transform:rotate(2deg);
-
-}
-
-.polaroid-card:nth-child(3){
-
-transform:rotate(-2deg);
-
-}
-
-
-
-/* Flower */
-
-.polaroid-card::after{
-
-content:"🌸";
-
-position:absolute;
-
-right:-8px;
-
-bottom:-10px;
-
-font-size:22px;
-
-}
-
-
-
-/* Photo */
-
-.story-image{
-
-height:300px;
-
-background:#F4F1EC;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-color:#B2A6A6;
-
-border-radius:6px;
-
-}
-
-
-
-.polaroid-card p{
-
-margin-top:12px;
-
-font-size:14px;
-
-color:#816F6F;
-
-}
-
-
-
-/* Hover */
-
-.polaroid-card:hover{
-
-transform:scale(1.03) rotate(0deg);
-
-transition:.35s;
-
-}
-
-
-
-
-
-/* =====================================================
-                    TIMELINE
-===================================================== */
-
-.timeline{
-
-max-width:430px;
-
-margin:70px auto;
-
-padding:20px;
-
-}
-
-
-
-.timeline h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:50px;
-
-text-align:center;
-
-color:#D57B93;
-
-margin-bottom:35px;
-
-}
-
-
-
-/* vertical line */
-
-.timeline-container{
-
-position:relative;
-
-padding-left:20px;
-
-}
-
-
-
-.timeline-container::before{
-
-content:"";
-
-position:absolute;
-
-left:10px;
-
-top:0;
-
-width:3px;
-
-height:100%;
-
-background:#F2C6D3;
-
-border-radius:50px;
-
-}
-
-
-
-/* Card */
-
-.timeline-card{
-
-position:relative;
-
-background:#FFFDF9;
-
-padding:22px;
-
-margin-bottom:25px;
-
-margin-left:20px;
-
-border-radius:20px;
-
-box-shadow:0 10px 22px rgba(0,0,0,.06);
-
-}
-
-
-
-/* circle */
-
-.timeline-card::before{
-
-content:"";
-
-position:absolute;
-
-left:-34px;
-
-top:28px;
-
-width:16px;
-
-height:16px;
-
-background:#E78FA7;
-
-border-radius:50%;
-
-border:4px solid white;
-
-box-shadow:0 0 0 3px #F7EFE8;
-
-}
-
-
-
-/* Tape */
-
-.timeline-card::after{
-
-content:"";
-
-position:absolute;
-
-top:-8px;
-
-right:30px;
-
-width:60px;
-
-height:18px;
-
-background:#F4DFC7;
-
-transform:rotate(8deg);
-
-border-radius:4px;
-
-}
-
-
-
-.date{
-
-display:inline-block;
-
-padding:6px 12px;
-
-background:#F8D8DF;
-
-border-radius:40px;
-
-font-size:12px;
-
-font-weight:600;
-
-color:#B86980;
 
 margin-bottom:15px;
 
 }
 
+.subtitle{
 
+font-size:17px;
 
-.timeline-card h3{
+line-height:28px;
 
-color:#C86B86;
+color:#7a675d;
 
-margin-bottom:10px;
-
-}
-
-
-
-.timeline-card p{
-
-line-height:1.8;
-
-font-size:14px;
-
-color:#786969;
+margin-bottom:30px;
 
 }
 
 
+/* ==========================
+      BUTTON
+========================== */
 
-/* Hover */
+#surpriseBtn{
 
-.timeline-card:hover{
-
-transform:translateY(-6px);
-
-transition:.35s;
-
-}
-/* =====================================================
-                MEMORIES SECTION
-===================================================== */
-
-.memories{
-
-max-width:430px;
-
-margin:70px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-
-
-/* Grid */
-
-.memory-grid{
-
-display:flex;
-
-flex-direction:column;
-
-gap:35px;
-
-margin-top:35px;
-
-}
-
-
-
-/* Memory Card */
-
-.memory-card{
-
-position:relative;
-
-background:#FFFDF9;
-
-padding:18px;
-
-border-radius:22px;
-
-box-shadow:0 12px 28px rgba(0,0,0,.08);
-
-overflow:hidden;
-
-}
-
-
-
-/* Paper Tape */
-
-.memory-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-10px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-5deg);
-
-width:80px;
-
-height:22px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-}
-
-
-
-/* Flower Sticker */
-
-.memory-card::after{
-
-content:"🌸";
-
-position:absolute;
-
-bottom:12px;
-
-right:14px;
-
-font-size:24px;
-
-opacity:.9;
-
-}
-
-
-
-/* Year */
-
-.year-tag{
-
-display:inline-block;
-
-background:#F8D8DF;
-
-padding:8px 18px;
-
-border-radius:30px;
-
-font-size:13px;
-
-font-weight:600;
-
-color:#B96D83;
-
-margin-bottom:18px;
-
-}
-
-
-
-/* Photo */
-
-.memory-photo{
-
-height:300px;
-
-background:#F3EFEA;
-
-border-radius:12px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-color:#B4A7A7;
-
-font-weight:600;
-
-font-size:18px;
-
-border:8px solid white;
-
-box-shadow:0 8px 18px rgba(0,0,0,.08);
-
-}
-
-
-
-/* Note */
-
-.memory-note{
-
-margin-top:18px;
-
-background:#FFF8F2;
-
-padding:15px;
-
-border-radius:15px;
-
-font-size:14px;
-
-line-height:1.8;
-
-color:#7A6969;
-
-}
-
-
-
-/* Different Rotation */
-
-.memory-card:nth-child(1){
-
-transform:rotate(-2deg);
-
-}
-
-.memory-card:nth-child(2){
-
-transform:rotate(2deg);
-
-}
-
-.memory-card:nth-child(3){
-
-transform:rotate(-1deg);
-
-}
-
-.memory-card:nth-child(4){
-
-transform:rotate(1.5deg);
-
-}
-
-
-
-/* Hover */
-
-.memory-card:hover{
-
-transform:scale(1.02) rotate(0deg);
-
-transition:.35s;
-
-}
-
-
-
-/* Decorative Emoji */
-
-.memory-card .memory-note::before{
-
-content:"🤍";
-
-margin-right:6px;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:430px){
-
-.memory-photo{
-
-height:260px;
-
-}
-
-.memory-note{
-
-font-size:13px;
-
-}
-
-}
-/* =====================================================
-                LETTER SECTION
-===================================================== */
-
-.letters{
-
-max-width:430px;
-
-margin:80px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-
-
-/* Envelope */
-
-.letter-envelope{
-
-width:260px;
-
-height:170px;
-
-margin:35px auto;
-
-background:linear-gradient(135deg,#F4DCCB,#EFD1C8);
-
-border-radius:12px;
-
-position:relative;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:22px;
-
-font-weight:600;
-
-color:#B66E84;
-
-box-shadow:0 12px 28px rgba(0,0,0,.10);
-
-cursor:pointer;
-
-transition:.35s;
-
-overflow:hidden;
-
-}
-
-
-
-/* Envelope Top */
-
-.letter-envelope::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:#E8C6B8;
-
-clip-path:polygon(0 0,50% 55%,100% 0);
-
-}
-
-
-
-/* Tape */
-
-.letter-envelope::after{
-
-content:"";
-
-position:absolute;
-
-top:-10px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-5deg);
-
-width:80px;
-
-height:20px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-}
-
-
-
-/* Hover */
-
-.letter-envelope:hover{
-
-transform:translateY(-8px) rotate(-2deg);
-
-}
-
-
-
-/* ====================================
-        LETTER PAPER
-==================================== */
-
-.letter-paper{
-
-position:relative;
-
-margin-top:35px;
-
-background:#FFFDF9;
-
-padding:32px;
-
-border-radius:24px;
-
-text-align:left;
-
-line-height:2;
-
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-
-}
-
-
-
-/* Tape */
-
-.letter-paper::before{
-
-content:"";
-
-position:absolute;
-
-top:-10px;
-
-right:40px;
-
-width:75px;
-
-height:20px;
-
-background:#F4DFC7;
-
-transform:rotate(8deg);
-
-border-radius:4px;
-
-}
-
-
-
-/* Flower */
-
-.letter-paper::after{
-
-content:"🌸";
-
-position:absolute;
-
-bottom:18px;
-
-right:18px;
-
-font-size:26px;
-
-}
-
-
-
-/* Heading */
-
-.letter-paper h3{
-
-font-family:'Sacramento',cursive;
-
-font-size:48px;
-
-color:#D57B93;
-
-margin-bottom:20px;
-
-}
-
-
-
-/* Paragraph */
-
-.letter-paper p{
-
-font-size:15px;
-
-color:#786868;
-
-}
-
-
-
-/* First Letter */
-
-.letter-paper p::first-letter{
-
-font-size:34px;
-
-font-weight:bold;
-
-color:#D57B93;
-
-}
-
-
-
-/* Signature */
-
-.letter-paper b{
-
-color:#C56D87;
-
-}
-
-
-
-/* Paper Effect */
-
-.letter-paper{
-
-background-image:
-
-linear-gradient(
-
-transparent 95%,
-
-rgba(0,0,0,.03) 95%
-
-);
-
-background-size:100% 34px;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:430px){
-
-.letter-envelope{
-
-width:220px;
-
-height:150px;
-
-}
-
-.letter-paper{
-
-padding:25px;
-
-}
-
-.letter-paper h3{
-
-font-size:40px;
-
-}
-
-.letter-paper p{
-
-font-size:14px;
-
-line-height:1.9;
-
-}
-
-}
-/* =====================================================
-            OUR FAVOURITE PLACES
-===================================================== */
-
-.places{
-
-max-width:430px;
-
-margin:80px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-.places-grid{
-
-display:flex;
-
-flex-direction:column;
-
-gap:30px;
-
-margin-top:35px;
-
-}
-
-
-
-/* Place Card */
-
-.place-card{
-
-position:relative;
-
-background:#FFFDF9;
-
-padding:16px;
-
-border-radius:22px;
-
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-overflow:hidden;
-
-transition:.35s;
-
-}
-
-
-
-/* Tape */
-
-.place-card .tape{
-
-position:absolute;
-
-top:-8px;
-
-width:70px;
-
-height:20px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-opacity:.95;
-
-}
-
-.place-card .left{
-
-left:25px;
-
-transform:rotate(-12deg);
-
-}
-
-.place-card .right{
-
-right:25px;
-
-transform:rotate(12deg);
-
-}
-
-
-
-/* Flower */
-
-.place-card::after{
-
-content:"🌸";
-
-position:absolute;
-
-bottom:12px;
-
-right:15px;
-
-font-size:22px;
-
-}
-
-
-
-/* Photo */
-
-.place-photo{
-
-height:250px;
-
-background:#F4F0EA;
-
-border:8px solid white;
-
-border-radius:12px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:18px;
-
-font-weight:600;
-
-color:#B2A5A5;
-
-box-shadow:0 8px 18px rgba(0,0,0,.08);
-
-}
-
-
-
-/* Text */
-
-.place-card h3{
-
-margin-top:18px;
-
-font-size:22px;
-
-color:#C96B85;
-
-}
-
-.place-card p{
-
-margin-top:8px;
-
-line-height:1.8;
-
-font-size:14px;
-
-color:#7A6A6A;
-
-}
-
-
-
-/* Hover */
-
-.place-card:hover{
-
-transform:translateY(-8px) rotate(-1deg);
-
-}
-
-
-
-/* =====================================================
-                PLAYLIST
-===================================================== */
-
-.playlist{
-
-max-width:430px;
-
-margin:80px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-
-
-/* Spotify Card */
-
-.spotify-card{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-gap:15px;
-
-background:#FFFDF9;
-
-padding:15px;
-
-margin-top:18px;
-
-border-radius:20px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-transition:.35s;
-
-position:relative;
-
-}
-
-
-
-/* Tape */
-
-.spotify-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-8px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-4deg);
-
-width:55px;
-
-height:18px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-}
-
-
-
-/* Album Cover */
-
-.cover{
-
-width:70px;
-
-height:70px;
-
-background:#F3EEE9;
-
-border-radius:16px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:30px;
-
-}
-
-
-
-/* Song Details */
-
-.song-details{
-
-flex:1;
-
-text-align:left;
-
-}
-
-.song-details h3{
-
-font-size:18px;
-
-color:#C96B85;
-
-margin-bottom:5px;
-
-}
-
-.song-details p{
-
-font-size:13px;
-
-color:#7B6B6B;
-
-}
-
-
-
-/* Play Button */
-
-.play-btn{
-
-width:48px;
-
-height:48px;
-
-background:#F7C9D5;
-
-border-radius:50%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:18px;
+background:#b08968;
 
 color:white;
 
-cursor:pointer;
+border:none;
 
-box-shadow:0 6px 16px rgba(234,158,182,.35);
+padding:14px 28px;
 
-transition:.35s;
-
-}
-
-
-
-/* Hover */
-
-.spotify-card:hover{
-
-transform:translateY(-6px);
-
-}
-
-.play-btn:hover{
-
-transform:scale(1.1);
-
-background:#EA9CB4;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:430px){
-
-.place-photo{
-
-height:220px;
-
-}
-
-.spotify-card{
-
-padding:14px;
-
-}
-
-.cover{
-
-width:60px;
-
-height:60px;
-
-}
-
-.song-details h3{
+border-radius:40px;
 
 font-size:16px;
 
-}
+cursor:pointer;
 
-}
-/* =====================================================
-                MEMORY WALL
-===================================================== */
+transition:.4s;
 
-.memory-wall{
-
-max-width:430px;
-
-margin:80px auto;
-
-padding:20px;
-
-text-align:center;
+box-shadow:0 8px 18px rgba(0,0,0,.12);
 
 }
 
-.memory-wall-grid{
+#surpriseBtn:hover{
 
-display:grid;
+background:#8d6e63;
 
-grid-template-columns:repeat(2,1fr);
-
-gap:18px;
-
-margin-top:35px;
+transform:translateY(-3px);
 
 }
 
-.wall-photo{
 
-background:#FFFDF9;
+/* ==========================
+      POLAROID
+========================== */
 
-padding:12px;
+.polaroid{
 
-border-radius:18px;
+width:270px;
 
-box-shadow:0 12px 28px rgba(0,0,0,.08);
+background:white;
+
+padding:15px;
+
+margin-top:40px;
+
+border-radius:12px;
+
+box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+transform:rotate(-4deg);
 
 position:relative;
 
-transition:.35s;
+}
+
+.polaroid img{
+
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+border-radius:8px;
+
+display:block;
 
 }
 
-.wall-photo:nth-child(5){
+.polaroid p{
 
-grid-column:span 2;
+margin-top:12px;
 
-width:70%;
+font-size:16px;
 
-margin:auto;
+font-weight:600;
+
+color:#7b5e57;
 
 }
 
-.wall-tape{
+
+/* Tape */
+
+.tape{
 
 position:absolute;
-
-top:-10px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-6deg);
 
 width:70px;
 
 height:18px;
 
-background:#F4DFC7;
-
-border-radius:4px;
+background:rgba(255,255,255,.65);
 
 }
 
-.photo-box{
-
-height:170px;
-
-background:#F4F0EB;
-
-border:8px solid white;
-
-border-radius:10px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-color:#B2A5A5;
-
-font-weight:600;
-
-}
-
-.wall-photo p{
-
-margin-top:10px;
-
-font-size:14px;
-
-color:#816F6F;
-
-}
-
-.wall-photo:hover{
-
-transform:translateY(-8px) rotate(-2deg);
-
-}
-
-
-
-/* =====================================================
-                OUR BOND
-===================================================== */
-
-.bond{
-
-max-width:430px;
-
-margin:80px auto;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-.bond-grid{
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-margin-top:30px;
-
-}
-
-.bond-card{
-
-background:#FFFDF9;
-
-padding:24px;
-
-border-radius:22px;
-
-position:relative;
-
-box-shadow:0 12px 28px rgba(0,0,0,.08);
-
-transition:.35s;
-
-overflow:hidden;
-
-}
-
-.bond-card::before{
-
-content:"";
-
-position:absolute;
+.tape1{
 
 top:-8px;
 
-left:35px;
+left:18px;
 
-width:65px;
-
-height:18px;
-
-background:#F4DFC7;
-
-transform:rotate(-8deg);
-
-border-radius:4px;
+transform:rotate(-20deg);
 
 }
 
-.bond-card::after{
-
-content:"🤍";
-
-position:absolute;
-
-right:16px;
-
-bottom:12px;
-
-font-size:22px;
-
-opacity:.8;
-
-}
-
-.bond-card h3{
-
-margin:15px 0;
-
-color:#C96B85;
-
-font-size:22px;
-
-}
-
-.bond-card p{
-
-line-height:1.9;
-
-font-size:14px;
-
-color:#7A6A6A;
-
-}
-
-.bond-card:hover{
-
-transform:translateY(-8px);
-
-}
-
-
-
-/* =====================================================
-        WHY YOU'RE SPECIAL
-===================================================== */
-
-.special-paper{
-
-margin-top:45px;
-
-background:#FFFDF9;
-
-padding:30px;
-
-border-radius:24px;
-
-position:relative;
-
-box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-text-align:left;
-
-}
-
-.special-paper::before{
-
-content:"";
-
-position:absolute;
+.tape2{
 
 top:-8px;
-
-right:35px;
-
-width:75px;
-
-height:18px;
-
-background:#F4DFC7;
-
-transform:rotate(7deg);
-
-border-radius:4px;
-
-}
-
-.special-paper::after{
-
-content:"🌸";
-
-position:absolute;
-
-bottom:15px;
-
-right:15px;
-
-font-size:24px;
-
-}
-
-.special-paper h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:48px;
-
-text-align:center;
-
-color:#D57B93;
-
-margin-bottom:25px;
-
-}
-
-.special-paper ul{
-
-list-style:none;
-
-padding:0;
-
-}
-
-.special-paper li{
-
-padding:14px 0;
-
-border-bottom:1px dashed #EED9DE;
-
-font-size:15px;
-
-color:#746565;
-
-line-height:1.8;
-
-}
-
-.special-paper li:last-child{
-
-border:none;
-
-}
-
-
-
-/* =====================================================
-            MOBILE
-===================================================== */
-
-@media(max-width:430px){
-
-.memory-wall-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.wall-photo:nth-child(5){
-
-grid-column:auto;
-
-width:100%;
-
-}
-
-.special-paper{
-
-padding:22px;
-
-}
-
-.special-paper h2{
-
-font-size:40px;
-
-}
-
-}
-/* =====================================================
-                PREMIUM FOOTER
-===================================================== */
-
-footer{
-
-max-width:430px;
-
-margin:90px auto 40px;
-
-padding:20px;
-
-}
-
-.footer-paper{
-
-position:relative;
-
-background:#FFFDF9;
-
-padding:35px 25px;
-
-border-radius:28px;
-
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-
-text-align:center;
-
-overflow:hidden;
-
-}
-
-.footer-paper::before{
-
-content:"";
-
-position:absolute;
-
-top:-8px;
-
-left:50%;
-
-transform:translateX(-50%) rotate(-5deg);
-
-width:85px;
-
-height:20px;
-
-background:#F4DFC7;
-
-border-radius:4px;
-
-}
-
-.footer-paper::after{
-
-content:"🌸";
-
-position:absolute;
-
-bottom:15px;
 
 right:18px;
 
-font-size:28px;
-
-}
-
-.footer-paper h2{
-
-font-family:'Sacramento',cursive;
-
-font-size:40px;
-
-color:#D57B93;
-
-margin-bottom:8px;
-
-}
-
-.footer-paper h1{
-
-font-size:36px;
-
-color:#C96B85;
-
-margin-bottom:18px;
-
-font-weight:600;
-
-}
-
-.footer-paper p{
-
-line-height:2;
-
-color:#7A6A6A;
-
-font-size:15px;
-
-}
-
-.footer-heart{
-
-font-size:22px;
-
-margin:20px 0;
-
-letter-spacing:8px;
+transform:rotate(18deg);
 
 }
 
 
+/* ==========================
+     HEARTS
+========================== */
 
-/* =====================================================
-        GLOBAL HOVER EFFECT
-===================================================== */
+.heart{
 
-.paper,
-.polaroid,
-.card,
-.polaroid-card,
-.timeline-card,
-.memory-card,
-.place-card,
-.spotify-card,
-.wall-photo,
-.bond-card,
-.special-paper,
-.footer-paper{
+position:absolute;
 
-transition:.35s ease;
+font-size:26px;
+
+opacity:.35;
+
+animation:float 5s infinite;
 
 }
 
-.paper:hover,
-.polaroid:hover,
-.special-paper:hover,
-.footer-paper:hover{
+.heart1{
 
-transform:translateY(-6px);
+top:70px;
 
-}
-
-
-
-/* =====================================================
-      FADE ANIMATION
-===================================================== */
-
-.hero,
-.surprise,
-.explore,
-.story,
-.timeline,
-.memories,
-.letters,
-.places,
-.playlist,
-.memory-wall,
-.bond,
-footer{
-
-animation:fadeUp .8s ease both;
+left:30px;
 
 }
 
-@keyframes fadeUp{
+.heart2{
 
-from{
+right:35px;
 
-opacity:0;
-
-transform:translateY(40px);
+top:180px;
 
 }
 
-to{
+.heart3{
 
-opacity:1;
+bottom:100px;
+
+left:50px;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
 
 transform:translateY(0);
 
@@ -2559,199 +259,622 @@ transform:translateY(0);
 }
 
 
+/* ==========================
+      FLOWERS
+========================== */
 
-/* =====================================================
-        FLOATING HEARTS
-===================================================== */
+.flower{
 
-body::before{
-
-content:"🤍   🌸   💕   ✨   🤍";
-
-position:fixed;
-
-top:18%;
-
-left:-120px;
-
-font-size:24px;
-
-opacity:.12;
-
-animation:floatOne 22s linear infinite;
-
-pointer-events:none;
-
-}
-
-body::after{
-
-content:"💕   🌷   🤍   🌸";
-
-position:fixed;
-
-bottom:18%;
-
-right:-120px;
-
-font-size:22px;
-
-opacity:.12;
-
-animation:floatTwo 20s linear infinite;
-
-pointer-events:none;
-
-}
-
-@keyframes floatOne{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-100%{
-
-transform:translateX(160vw);
-
-}
-
-}
-
-@keyframes floatTwo{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-100%{
-
-transform:translateX(-160vw);
-
-}
-
-}
-
-
-
-/* =====================================================
-      SCROLLBAR
-===================================================== */
-
-::-webkit-scrollbar{
-
-width:8px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#F7EFE8;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#E8B8C6;
-
-border-radius:50px;
-
-}
-
-
-
-/* =====================================================
-        TEXT SELECTION
-===================================================== */
-
-::selection{
-
-background:#F4C5D2;
-
-color:white;
-
-}
-
-
-
-/* =====================================================
-        MOBILE POLISH
-===================================================== */
-
-@media(max-width:430px){
-
-body{
-
-font-size:15px;
-
-}
-
-.hero,
-.surprise,
-.explore,
-.story,
-.timeline,
-.memories,
-.letters,
-.places,
-.playlist,
-.memory-wall,
-.bond,
-footer{
-
-padding-left:16px;
-
-padding-right:16px;
-
-}
-
-.section-title h2{
-
-font-size:42px;
-
-}
-
-.footer-paper h1{
+position:absolute;
 
 font-size:30px;
 
-}
-
-.footer-paper h2{
-
-font-size:34px;
+opacity:.8;
 
 }
 
-.footer-paper{
+.flower-left{
 
-padding:28px 20px;
+left:10px;
+
+bottom:120px;
+
+}
+
+.flower-right{
+
+right:10px;
+
+top:220px;
+
+}
+
+.flower-top{
+
+top:25px;
+
+right:20px;
+
+}
+
+.flower-bottom{
+
+bottom:25px;
+
+left:25px;
+
+}
+
+
+/* ==========================
+     SCROLL TEXT
+========================== */
+
+.scroll-text{
+
+margin-top:45px;
+
+font-size:16px;
+
+font-weight:600;
+
+color:#8d6e63;
+
+}
+
+.scroll-text span{
+
+display:block;
+
+font-size:22px;
+
+margin-top:8px;
+
+}
+
+
+/* ==========================
+      MOBILE
+========================== */
+
+@media(max-width:480px){
+
+.hero{
+
+padding:30px 18px;
+
+}
+
+.hero h1{
+
+font-size:48px;
+
+}
+
+.subtitle{
+
+font-size:15px;
+
+line-height:25px;
+
+}
+
+.polaroid{
+
+width:235px;
+
+}
+
+.polaroid img{
+
+height:290px;
+
+}
+
+#surpriseBtn{
+
+width:100%;
+
+max-width:260px;
 
 }
 
 }
+/* ===================================
+      EXPLORE OUR WORLD
+=================================== */
 
+.explore{
 
+padding:70px 20px;
 
-/* =====================================================
-        SOFT BACKGROUND GLOW
-===================================================== */
+text-align:center;
 
-body{
-
-background:
-radial-gradient(circle at top left,
-rgba(255,225,230,.45),
-transparent 35%),
-
-radial-gradient(circle at bottom right,
-rgba(255,240,220,.55),
-transparent 35%),
-
-#F7EFE8;
+background:#fbf6f1;
 
 }
+
+.explore h2{
+
+font-size:36px;
+
+font-family:'Sacramento',cursive;
+
+color:#7b5e57;
+
+margin-bottom:12px;
+
+}
+
+.explore p{
+
+font-size:15px;
+
+color:#7a6d67;
+
+margin-bottom:35px;
+
+line-height:26px;
+
+}
+
+
+/* ==========================
+        FEATURE CARDS
+========================== */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+
+gap:18px;
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+.card{
+
+background:#fffaf5;
+
+padding:22px 15
+/* ===================================
+        OUR ADVENTURE
+=================================== */
+
+.adventure-section{
+
+padding:70px 20px;
+
+background:#fffaf5;
+
+text-align:center;
+
+}
+
+.adventure-section h2{
+
+font-family:'Sacramento',cursive;
+
+font-size:36px;
+
+color:#6d4c41;
+
+margin-bottom:10px;
+
+}
+
+.adventure-section p{
+
+color:#7a675d;
+
+margin-bottom:35px;
+
+line-height:26px;
+
+}
+
+
+/* Adventure Gallery */
+
+.adventure-gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:22px;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.adventure-card{
+
+background:#ffffff;
+
+padding:14px;
+
+border-radius:18px;
+
+box-shadow:0 10px 22px rgba(0,0,0,.08);
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.adventure-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.adventure-card img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+border-radius:14px;
+
+background:#ece2d6;
+
+}
+
+
+/* ===================================
+        PLAYLIST
+=================================== */
+
+.playlist-section{
+
+padding:70px 20px;
+
+background:#faf3ec;
+
+text-align:center;
+
+}
+
+.playlist-section h2{
+
+font-family:'Sacramento',cursive;
+
+font-size:36px;
+
+color:#6d4c41;
+
+margin-bottom:10px;
+
+}
+
+.playlist-section p{
+
+margin-bottom:35px;
+
+color:#7a675d;
+
+}
+
+.playlist-container{
+
+max-width:650px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+
+/* Spotify Card */
+
+.song-card{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+background:#ffffff;
+
+padding:15px;
+
+border-radius:18px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.song-card:hover{
+
+transform:scale(1.02);
+
+}
+
+.song-card img{
+
+width:65px;
+
+height:65
+/* ===================================
+        LETTERS SECTION
+=================================== */
+
+.letters-section{
+padding:70px 20px;
+background:#fffaf5;
+text-align:center;
+}
+
+.letters-section h2{
+font-family:'Sacramento',cursive;
+font-size:36px;
+color:#6d4c41;
+margin-bottom:10px;
+}
+
+.letters-section p{
+color:#7a675d;
+margin-bottom:30px;
+}
+
+.letter-card{
+max-width:320px;
+margin:auto;
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.letter-icon{
+font-size:55px;
+margin-bottom:20px;
+}
+
+#openLetter{
+padding:14px 30px;
+background:#b08968;
+color:white;
+border:none;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+#openLetter:hover{
+background:#8d6e63;
+}
+
+
+/* ===============================
+       LETTER POPUP
+================================ */
+
+.letter-popup,
+.video-popup,
+.image-viewer{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.65);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999;
+
+}
+
+.letter-paper{
+
+width:90%;
+max-width:500px;
+
+background:#fff8ef;
+
+padding:30px;
+
+border-radius:18px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+position:relative;
+
+max-height:85vh;
+
+overflow:auto;
+
+}
+
+.letter-paper h2{
+
+font-family:'Sacramento',cursive;
+
+font-size:40px;
+
+margin-bottom:20px;
+
+color:#795548;
+
+}
+
+.letter-paper p{
+
+line-height:32px;
+
+font-size:16px;
+
+color:#5d4037;
+
+}
+
+.close-letter,
+.close-video,
+.close-image{
+
+position:absolute;
+
+top:15px;
+
+right:18px;
+
+font-size:30px;
+
+cursor:pointer;
+
+color:#795548;
+
+}
+
+
+/* ===============================
+        VIDEO POPUP
+================================ */
+
+.video-box{
+
+width:90%;
+
+max-width:700px;
+
+background:white;
+
+padding:15px;
+
+border-radius:18px;
+
+position:relative;
+
+}
+
+.video-box video{
+
+width:100%;
+
+border-radius:12px;
+
+}
+
+
+/* ===============================
+      IMAGE VIEWER
+================================ */
+
+.image-viewer img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+}
+
+
+/* ===============================
+         OUR BOND
+================================ */
+
+.bond-section{
+
+padding:70px 20px;
+
+text-align:center;
+
+background:#faf3ec;
+
+}
+
+.bond-card,
+.special-card{
+
+background:white;
+
+max-width:650px;
+
+margin:25px auto;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.bond-card p{
+
+font-size:20px;
+
+line-height:38px;
+
+color:#6d4c41;
+
+}
+
+.special-card h2{
+
+font-family:'Sacramento',cursive;
+
+font-size:38px;
+
+margin-bottom:20px;
+
+color:#6d4c41;
+
+}
+
+.special-card ul{
+
+list-style:none;
+
+text-align:left;
+
+}
+
+.special-card li{
+
+margin:15px 0;
+
+padding-left:12px;
+
+font-size:16px;
+
+color:#5d4037;
+
+}
+
+
+/* ===============================
+           FOOTER
+================================ */
