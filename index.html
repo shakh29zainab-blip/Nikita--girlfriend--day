@@ -14,11 +14,31 @@
 </head>
 <body>
 
-<!-- ===================== BACKGROUND MUSIC ===================== -->
+<!-- ===================== BACKGROUND MUSIC — mini player ===================== -->
 <audio id="bgMusic" src="video1.mp3.m4a" loop preload="auto"></audio>
-<button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music">
-  <span id="musicIcon">🎵</span>
-</button>
+<div class="music-player" id="musicPlayer">
+  <div class="mp-art">
+    <span class="mp-wave" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </span>
+  </div>
+  <div class="mp-info">
+    <p class="mp-title">I Wanna Be Yours</p>
+    <p class="mp-artist">Arctic Monkeys</p>
+    <div class="mp-progress" id="mpProgressBar">
+      <div class="mp-progress-fill" id="mpProgressFill"></div>
+    </div>
+    <div class="mp-times">
+      <span id="mpCurrentTime">0:00</span>
+      <span id="mpRemainingTime">-0:00</span>
+    </div>
+    <div class="mp-controls">
+      <button id="mpPrev" type="button" aria-label="Back 10 seconds">⏪</button>
+      <button id="mpPlayPause" type="button" aria-label="Play or pause music">▶</button>
+      <button id="mpNext" type="button" aria-label="Forward 10 seconds">⏩</button>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== AMBIENT DECORATION LAYER ===================== -->
 <!-- Floating hearts + sparkles that drift gently over the whole page -->
@@ -40,7 +60,8 @@
       <p class="eyebrow">— for the one i love —</p>
       <h1 class="hero-title">Happy Girlfriend's<br>Day <span class="heart-pulse">❤️</span></h1>
       <p class="hero-paragraph">Every moment with you is my favorite part of every day.</p>
-      <button class="btn-surprise" id="surpriseBtn" type="button">
+      <!-- opens the Love Letter popup -->
+      <button class="btn-surprise" type="button" data-popup="popup-letter">
         Click for Surprise <span class="btn-heart">💕</span>
       </button>
     </div>
@@ -64,15 +85,20 @@
   <div class="scroll-hint fade-up delay-2">↓ scroll our little world ↓</div>
 </header>
 
-<!-- ===================== SURPRISE VIDEO POPUP ===================== -->
-<div class="popup-overlay" id="surprisePopup">
-  <div class="popup-paper video-popup">
+<!-- ---------- POPUP: Love Letter (opened from hero "Click for Surprise") ---------- -->
+<div class="popup-overlay" id="popup-letter">
+  <div class="popup-paper letter-popup">
     <button class="popup-close" data-close aria-label="Close">✕</button>
-    <p class="popup-title">a little surprise for you 💌</p>
-    <video id="surpriseVideo" class="surprise-video" controls playsinline>
-      <source src="video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <p class="popup-title">💌 A Little Surprise</p>
+    <p class="letter-greeting">My Love,</p>
+    <p class="letter-body">
+      Every day with you becomes my favorite memory.<br>
+      Your smile is my peace, your laughter is my happiness, and your love is my greatest blessing.<br>
+      Thank you for making every ordinary moment feel magical.<br>
+      No matter where life takes us, my heart will always choose you.<br>
+      I love you today, tomorrow, and forever. ❤️
+    </p>
+    <p class="letter-signoff">— always yours</p>
   </div>
 </div>
 
@@ -140,6 +166,9 @@
 </div>
 
 <!-- ---------- POPUP: Our Story (timeline) ---------- -->
+<!-- NOTE: 2023 slot intentionally uses firstdate.jpg, and the First Date popup below
+     intentionally uses story2023.jpg — swapped on purpose per request, without
+     renaming anything on GitHub. -->
 <div class="popup-overlay" id="popup-story">
   <div class="popup-paper popup-wide">
     <button class="popup-close" data-close aria-label="Close">✕</button>
@@ -154,7 +183,7 @@
       </div>
       <div class="timeline-item">
         <span class="timeline-year">2023</span>
-        <img src="story2023.jpg" alt="2023" onerror="this.src='https://images.unsplash.com/photo-1495570689054-04a874ee9d4d?w=300&h=300&fit=crop'">
+        <img src="firstdate.jpg" alt="2023" onerror="this.src='https://images.unsplash.com/photo-1495570689054-04a874ee9d4d?w=300&h=300&fit=crop'">
         <p class="timeline-note">falling deeper</p>
       </div>
       <div class="timeline-item">
@@ -181,7 +210,7 @@
   <div class="popup-paper">
     <button class="popup-close" data-close aria-label="Close">✕</button>
     <p class="popup-title">🌸 Our First Date</p>
-    <img class="single-photo" src="firstdate.jpg" alt="Our first date" onerror="this.src='https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=500&h=500&fit=crop'">
+    <img class="single-photo" src="story2023.jpg" alt="Our first date" onerror="this.src='https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=500&h=500&fit=crop'">
     <p class="handwritten-caption">the day my heart quietly chose you</p>
   </div>
 </div>
@@ -213,50 +242,6 @@
   </div>
 </div>
 
-<!-- ===================== MEMORIES SECTION (hanging photo rope) ===================== -->
-<section class="section memories" id="memories">
-  <span class="deco flower-deco fd-bg1" aria-hidden="true">🌼</span>
-  <span class="deco flower-deco fd-bg2" aria-hidden="true">🤍</span>
-  <span class="deco sparkle-deco" style="top:10%; left:8%;" aria-hidden="true">✦</span>
-  <span class="deco paper-note" style="bottom:8%; right:6%;" aria-hidden="true"></span>
-
-  <h2 class="section-heading">Memories ♡</h2>
-  <p class="section-sub">a little rope of us</p>
-
-  <div class="rope-wrap">
-    <div class="rope-line" aria-hidden="true"></div>
-    <div class="rope-track" id="ropeTrack">
-      <div class="rope-photo">
-        <span class="wood-clip" aria-hidden="true">📎</span>
-        <img src="vibing.jpg" alt="Memory photo one" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=350&h=420&fit=crop'">
-      </div>
-      <div class="rope-photo">
-        <span class="wood-clip" aria-hidden="true">📎</span>
-        <img src="vibing2.jpg" alt="Memory photo two" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=350&h=420&fit=crop'">
-      </div>
-      <div class="rope-photo">
-        <span class="wood-clip" aria-hidden="true">📎</span>
-        <img src="vibing3.jpg" alt="Memory photo three" onerror="this.src='https://images.unsplash.com/photo-1495570689054-04a874ee9d4d?w=350&h=420&fit=crop'">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== OUR BOND SECTION ===================== -->
-<section class="section bond" id="bond">
-  <div class="torn-note fade-up">
-    <span class="deco tape-piece tape-1" aria-hidden="true"></span>
-    <span class="deco stamp-deco stamp-small" aria-hidden="true"><span class="stamp-inner">LOVE</span></span>
-    <h2 class="section-heading small-heading">Our Bond ♡</h2>
-    <p class="bond-line">Different by chance.</p>
-    <p class="bond-line">Best friends by choice.</p>
-    <p class="bond-line">Lovers by fate.</p>
-    <p class="bond-line bond-final">Soulmates forever.</p>
-    <span class="deco heart-deco" style="bottom:8%; left:10%;" aria-hidden="true">♡</span>
-    <span class="deco flower-deco fd-3" style="bottom:6%; right:8%;" aria-hidden="true">🌸</span>
-  </div>
-</section>
-
 <!-- ===================== WHY YOU'RE SPECIAL SECTION ===================== -->
 <section class="section special" id="special">
   <div class="torn-note torn-note-pink fade-up">
@@ -274,36 +259,30 @@
   </div>
 </section>
 
-<!-- ===================== LOVE LETTER SECTION ===================== -->
-<section class="section letter-section" id="letter">
+<!-- ===================== ONE LAST SURPRISE — video, right at the end ===================== -->
+<section class="section video-surprise" id="last-surprise">
   <span class="deco sparkle-deco" style="top:8%; left:10%;" aria-hidden="true">✦</span>
   <span class="deco heart-deco" style="top:12%; right:10%;" aria-hidden="true">♡</span>
 
   <h2 class="section-heading">One Last Little Thing ♡</h2>
-  <p class="section-sub">tap the envelope</p>
+  <p class="section-sub">save the best for last</p>
 
-  <div class="envelope-wrap">
-    <div class="envelope" id="envelope">
-      <div class="envelope-back"></div>
-      <div class="envelope-flap"></div>
-      <div class="wax-seal">❤</div>
-      <div class="envelope-front"></div>
-    </div>
-
-    <div class="letter-paper" id="letterPaper">
-      <button class="popup-close letter-close" id="letterClose" aria-label="Close letter">✕</button>
-      <p class="letter-greeting">My Love,</p>
-      <p class="letter-body">
-        Every day with you becomes my favorite memory.<br>
-        Your smile is my peace, your laughter is my happiness, and your love is my greatest blessing.<br>
-        Thank you for making every ordinary moment feel magical.<br>
-        No matter where life takes us, my heart will always choose you.<br>
-        I love you today, tomorrow, and forever. ❤️
-      </p>
-      <p class="letter-signoff">— always yours</p>
-    </div>
-  </div>
+  <button class="btn-surprise" type="button" data-popup="popup-video">
+    Click Here for Surprise <span class="btn-heart">💕</span>
+  </button>
 </section>
+
+<!-- ---------- POPUP: Surprise video ---------- -->
+<div class="popup-overlay" id="popup-video">
+  <div class="popup-paper video-popup">
+    <button class="popup-close" data-close aria-label="Close">✕</button>
+    <p class="popup-title">a little surprise for you 💌</p>
+    <video id="surpriseVideo" class="surprise-video" controls playsinline>
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
 
 <footer class="footer">
   <p>made with ❤ just for you</p>
