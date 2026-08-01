@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For You</title>
+  <title>Nikita - Girlfriend Day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,11 +16,11 @@
       --shadow:0 15px 35px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box;margin:0;padding:0}
+    html,body{width:100%;overflow-x:hidden}
     body{
       font-family:'Cormorant Garamond', serif;
       background:linear-gradient(180deg,#fdf7f1 0%, #f6e8da 100%);
       color:#6f5750;
-      overflow-x:hidden;
     }
     .music-bar{
       position:fixed;
@@ -36,6 +36,7 @@
       border-radius:999px;
       padding:10px 14px;
       box-shadow:var(--shadow);
+      max-width:calc(100vw - 20px);
     }
     .music-btn{
       width:34px;
@@ -48,18 +49,16 @@
       display:grid;
       place-items:center;
       font-size:14px;
+      flex:0 0 auto;
     }
     .music-info{
-      min-width:130px;
+      min-width:110px;
       font-size:14px;
       line-height:1.1;
     }
     .music-info strong{display:block;font-size:13px;color:#5f4943}
     .music-info span{font-size:11px;color:#9b7b73}
-    .vol{
-      width:70px;
-      accent-color:var(--accent);
-    }
+    .vol{width:70px;accent-color:var(--accent);flex:0 0 auto}
     section{width:100%}
     .hero{
       min-height:100vh;
@@ -72,13 +71,11 @@
     .hero-inner{
       width:min(1200px,100%);
       display:grid;
-      grid-template-columns:1.1fr .9fr;
+      grid-template-columns:1.05fr .95fr;
       gap:30px;
       align-items:center;
     }
-    .hero-text{
-      padding:30px 10px;
-    }
+    .hero-text{padding:30px 10px}
     .eyebrow{
       letter-spacing:5px;
       font-size:14px;
@@ -100,7 +97,6 @@
       max-width:520px;
     }
     .hero-cards{
-      position:relative;
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:18px;
@@ -114,8 +110,10 @@
       box-shadow:var(--shadow);
       transform:rotate(-2deg);
     }
-    .photo-card:nth-child(2){transform:rotate(2deg); margin-top:28px;}
-    .photo-card:nth-child(3){transform:rotate(-1deg); margin-left:35px;}
+    .photo-card:nth-child(2){
+      transform:rotate(2deg);
+      margin-top:28px;
+    }
     .photo-card img{
       width:100%;
       height:290px;
@@ -123,18 +121,19 @@
       display:block;
       background:#f6f0ea;
     }
-    .hero-right-image{
+    .right-image{
+      grid-column:1 / -1;
       justify-self:end;
-      width:min(340px,100%);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
+      width:min(320px,100%);
       background:#fff;
       padding:10px;
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      margin-top:10px;
     }
-    .hero-right-image img{
+    .right-image img{
       width:100%;
-      height:420px;
+      height:390px;
       object-fit:cover;
       display:block;
       border-radius:20px;
@@ -147,19 +146,27 @@
       width:min(1100px,100%);
       margin:auto;
     }
-    .timeline-title{
+    .section-title{
       text-align:center;
       font-family:'Great Vibes', cursive;
       font-size:64px;
       color:#7b5a53;
-      margin-bottom:24px;
+      margin-bottom:12px;
+    }
+    .section-sub{
+      text-align:center;
+      font-size:18px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#b1887d;
+      margin-bottom:28px;
     }
     .story{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:22px;
       align-items:stretch;
-      margin-top:30px;
+      margin-top:18px;
     }
     .story-card{
       background:#fff;
@@ -242,7 +249,7 @@
       z-index:2000;
       padding:18px;
     }
-    .modal.show{display:grid;}
+    .modal.show{display:grid}
     .modal-card{
       width:min(720px,100%);
       background:#fffaf4;
@@ -277,23 +284,37 @@
     }
     @media (max-width: 900px){
       .hero-inner{grid-template-columns:1fr}
-      .hero-cards{grid-template-columns:repeat(3,1fr)}
-      .hero-right-image{justify-self:center}
-      .hero-right-image img{height:300px}
+      .hero-cards{grid-template-columns:repeat(2,1fr)}
+      .right-image{justify-self:center;grid-column:auto}
+      .right-image img{height:300px}
       .story{grid-template-columns:1fr}
       h1{font-size:64px}
       .subtitle{font-size:20px}
     }
     @media (max-width: 700px){
-      .music-bar{right:10px;left:10px;justify-content:space-between}
+      .music-bar{
+        left:10px;
+        right:10px;
+        justify-content:space-between;
+        gap:8px;
+      }
       .music-info{min-width:auto;flex:1}
-      .hero-cards{grid-template-columns:1fr;gap:14px}
-      .photo-card{width:78%}
-      .photo-card:nth-child(2),.photo-card:nth-child(3){margin:0;transform:none}
+      .hero-cards{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .photo-card{
+        width:80%;
+      }
+      .photo-card:nth-child(2){
+        margin-top:0;
+        transform:none;
+      }
       h1{font-size:54px}
-      .timeline-title{font-size:52px}
+      .section-title{font-size:52px}
       .letter-title{font-size:48px}
       .modal-card h2{font-size:46px}
+      .modal-card p{font-size:20px}
     }
   </style>
 </head>
@@ -303,4 +324,123 @@
     <button class="music-btn" id="musicToggle">▶</button>
     <div class="music-info">
       <strong>Now Playing</strong>
-      <span>Forever 
+      <span>Forever song</span>
+    </div>
+    <input class="vol" id="volume" type="range" min="0" max="1" step="0.01" value="0.7">
+    <audio id="bgMusic" loop preload="auto" autoplay>
+      <source src="video.1.mp3.m4a" type="audio/mp4">
+    </audio>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">A little rope of us</div>
+        <h1>For You</h1>
+        <div class="subtitle">A soft little page made with love, keeping the sweetest moments close forever.</div>
+      </div>
+
+      <div class="hero-cards">
+        <div class="photo-card">
+          <img src="story2023.jpg" alt="Memory 1">
+        </div>
+        <div class="photo-card">
+          <img src="story2023.jpg" alt="Memory 2">
+        </div>
+        <div class="right-image">
+          <img src="firstdate.jpg" alt="First date">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline">
+    <div class="timeline-wrap">
+      <div class="section-title">Our Story</div>
+      <div class="section-sub">The moments that matter</div>
+
+      <div class="story">
+        <div class="story-card">
+          <img src="firstdate.jpg" alt="First date section image">
+          <div class="story-caption">2023 - First Date</div>
+        </div>
+
+        <div class="story-card">
+          <img src="story2023.jpg" alt="2023 story section image">
+          <div class="story-caption">Story of Us</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letter-section">
+    <div class="letter-wrap" id="letterOpen">
+      <div class="letter-top">
+        <div class="letter-tag">LOVE</div>
+      </div>
+      <div class="letter-title">Love Letter</div>
+      <div class="letter-preview">A few words kept close to the heart, waiting to be opened with one click.</div>
+      <div class="open-hint">Click to open</div>
+    </div>
+  </section>
+
+  <div class="modal" id="letterModal">
+    <div class="modal-card">
+      <button class="close" id="closeModal">&times;</button>
+      <h2>Love Letter</h2>
+      <p>You are my calm, my happiest place, and my favorite part of every day. Every moment with you feels softer, warmer, and more beautiful than the last.</p>
+    </div>
+  </div>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const toggle = document.getElementById('musicToggle');
+    const volume = document.getElementById('volume');
+    const letterOpen = document.getElementById('letterOpen');
+    const letterModal = document.getElementById('letterModal');
+    const closeModal = document.getElementById('closeModal');
+
+    music.volume = volume.value;
+
+    async function tryPlay(){
+      try{
+        await music.play();
+        toggle.textContent = '❚❚';
+      }catch(e){
+        toggle.textContent = '▶';
+      }
+    }
+
+    toggle.addEventListener('click', async () => {
+      if (music.paused) {
+        await tryPlay();
+      } else {
+        music.pause();
+        toggle.textContent = '▶';
+      }
+    });
+
+    volume.addEventListener('input', () => {
+      music.volume = volume.value;
+    });
+
+    window.addEventListener('load', () => {
+      tryPlay();
+    });
+
+    letterOpen.addEventListener('click', () => {
+      letterModal.classList.add('show');
+    });
+
+    closeModal.addEventListener('click', () => {
+      letterModal.classList.remove('show');
+    });
+
+    letterModal.addEventListener('click', (e) => {
+      if (e.target === letterModal) {
+        letterModal.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
