@@ -3,7 +3,11 @@
    No frameworks. Small, commented, easy to edit.
    ========================================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
+const bgMusic = document.getElementById("bgMusic");
+
+window.addEventListener("load", () => {
+  bgMusic.play().catch(() => {});
+});
 
   /* ---------------------------------------------------
      0. BACKGROUND MUSIC
